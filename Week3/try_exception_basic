@@ -1,0 +1,51 @@
+try:
+    number = int(input("Enter a number: "))
+    print(10 / number)
+
+except:
+    print("Something went wrong!")
+
+print("program finished")
+
+
+
+#division of 2 numbers
+try:
+    number1=int(input("Enter the first number: "))
+    number2=int(input("Enter the second number: "))
+    print(number1/number2)
+    
+except:
+    print("Error occured")
+
+print("program finished")
+
+
+# catch different error
+try: 
+    number=int(input("Enter the number: "))
+    print(f" Division : {10/number}")
+except ZeroDivisionError:
+    print("Number cannot be divided by zero")
+except ValueError:
+    print("Enter the digits")
+
+
+#age
+
+try:
+    age=int(input("Enter the age: "))
+    if age<0:
+        raise ValueError("Age cannot be negative")
+except ValueError as e:
+    print(e)
+
+#password
+try:
+    password=input("Enter password: ")
+    if len(password)<8:
+        raise ValueError("PAssword is too short")
+    print("Password is Accepted")
+
+except ValueError as e:
+    print(e)
