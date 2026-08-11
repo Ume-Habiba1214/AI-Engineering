@@ -5,12 +5,10 @@ class ContactManager:
 
     def add_contact(self,name, age, email, city):
         self.contact={
-
             "name":name,
             "age":age,
             "email":email,
-            "city":city
-        }
+            "city":city}
         self.contacts.append(self.contact)
         print("Contact added successfully!")
 
@@ -27,10 +25,6 @@ class ContactManager:
             print(f"Contact not found.")
         else:
             print("Contact deleted successfully.")
-            
-
-
-
 
 
     def view_contacts(self):
@@ -74,20 +68,50 @@ class ContactManager:
                 print("2. Change Age")
                 print("3. Change Email")
                 print("4. Change City")
-                option=int(input("Enter the Option number:"))
+                while True:
+                    try:
+                        option=int(input("Enter the Option number:"))
+                        break
+                    except ValueError:
+                        print("Enter the valid Number.")
                 found=True
                 if option==1:
-                    name=input("Enter the Name: ")
-                    contact["name"]=name
+                    while True:
+                        name=input("Enter the Name: ")
+                        if name and name.isalpha():
+                            contact["name"]=name
+                            break
+                        else:
+                            print("Enter the valid Name to update")
+                    
                 elif option==2:
-                    age=int(input("Enter the Age: "))
-                    contact["age"]=age
+                    while True:
+                        try:
+                            age=int(input("Enter the Age: "))
+                            if age>0:
+                                contact["age"]=age
+                                break
+                            else:
+                                print("Enter positive integer.")
+                        except ValueError:
+                            print("Enter the valid number.")
+                    
                 elif option==3:
-                    email=input("Enter the Email Address: ")
-                    contact["email"]=email
+                    while True:
+                        email=input("Enter the Email Address: ")
+                        if email and "@" in email and "." in email:
+                            contact["email"]=email
+                            break
+                        else:
+                            print("Enter Valid Email to update")
                 elif option==4:
-                    city=input("Enter the City: ")
-                    contact["city"]=city
+                    while True:
+                        city=input("Enter the City: ")
+                        if city:
+                            contact["city"]=city
+                            break
+                        else:
+                            print("Enter valid city name to update.")
                 else: 
                     print(" you Enter Wrong Option Number")
                 break
@@ -108,24 +132,66 @@ class ContactManager:
             print("6. Exit")
             print("\n")
             print("Choose Option: ")
-            option=int(input("Enter the Option number: "))
+            while True:
+                try:
+                    option=int(input("Enter the Option number: "))
+                    break
+                except ValueError:
+                    print("Please Enter valid Number.")
             if option==1:
-                name=input("Enter the Name: ")
-                o
-                age=int(input("Enter the Age: "))
-                email=input("Enter the Email Address: ")
-                city=input("Enter the city Name: ")
+                while True:
+                    name=input("Enter the Name: ")
+                    if name and name.isalpha():
+                        break
+                    else:
+                        print("Enter the valid Name.")
+                while True:
+                    try: 
+                        age=int(input("Enter the Age: "))
+                        if age>0:
+                            break
+                        else:
+                            print("Enter Positive integer")
+                    except ValueError:
+                        print("please enter valid Number")
+                while True:
+                    email=input("Enter the Email Address: ")
+                    if email and "@" in email and "." in email:
+                        break
+                    else:
+                        print("Enter Valid Email.")
+                while True:
+                    city=input("Enter the city Name: ")
+                    if city and city.isalpha():
+                        break
+                    else:
+                        print("Enter valid city name.")
                 self.add_contact(name,age,email,city)
             elif option==2:
-                name=input("Enter the name to Delete Contact: ")
+                while True:
+                    name=input("Enter the name to Delete Contact: ")
+                    if name and name.isalpha():
+                        break
+                    else:
+                        print("Enter the Valid name to delete. ")
                 self.delete_contact(name)
             elif option==3:
-                self.view_contacts()9
+                self.view_contacts()
             elif option==4:
-                name=input("Enter the name to Search Contact: ")
+                while True:
+                    name=input("Enter the name to Search Contact: ")
+                    if name and name.isalpha():
+                        break
+                    else:
+                        print("Enter the valid name to search.")
                 self.search_contact(name)
             elif option==5:
-                name=input("Enter the name to Update Contact: ")
+                while True:
+                    name=input("Enter the name to Update Contact: ")
+                    if name and name.isalpha():
+                        break
+                    else:
+                        print("Enter the valid name to update")
                 self.update_contact(name)
             elif option==6:
                 print("Good Bye!")
@@ -134,6 +200,8 @@ class ContactManager:
                 print("You Enter Wrong Option Number")
             print()
             print()
+
+
 
 manager=ContactManager()
 manager.run()

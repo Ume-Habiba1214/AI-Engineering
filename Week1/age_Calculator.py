@@ -1,5 +1,5 @@
 print("Age Caluculator")
-age=int(input("Eanter Your Age: "))
+age=int(input("Enter Your Age: "))
 if age>=0 and age<200:
     if age>=0 and age<=12:
         print("Child")
@@ -11,3 +11,4 @@ if age>=0 and age<200:
         print("Senior Citizens")
 else:
     print("input is invalid")
+
